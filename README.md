@@ -1,12 +1,17 @@
-## Full-Stack-Role-Based-Authenication-Routing-DRF-REACTJS-
+# Full-Stack-Role-Based-Authenication-Routing-DRF-REACTJS-
+-----------------------------------------------------------
 ## DRF + React
+
 A Full Stack Django REST Framework &amp; Reactjs Application with Role Based(Admin, Manager, Client) User Management, Authentication, Authorization(Token) &amp; Routing
 
+------------------------------------------------------------
 # Django REST Framework and ReactJs Application (DRF+React)
 Two Standalone boilerplate/base working application with DRF(Django REST Framework) &amp; ReactJs.
 
 Suitable For Dynamic, Data Driven Usage
 
+
+------------------------------------------------------------
 ##  Backend
 
 A standalone application responsible for:
@@ -30,6 +35,9 @@ A standalone application responsible for:
 2. cd to dir to find 'manage.py'
 3. python manage.py runserver
 
+------------------------------------------------------------
+
+------------------------------------------------------------
 ## FrontEnd
 
 Backed by Super Backend Responsible for:
@@ -49,3 +57,5 @@ Backed by Super Backend Responsible for:
 3. npm start ( Make sure you have Node, React etc installed)
 
 
+
+------------------------------------------------------------
