@@ -1,0 +1,11 @@
+﻿djangorestframework
+markdown
+django-filter
+Django==4.1
+asgirefdjango-cors-headers
+djangorestframework
+djangorestframework-jwt
+djangorestframework-simplejwt
+PyJWT
+pytz
+sqlparse
