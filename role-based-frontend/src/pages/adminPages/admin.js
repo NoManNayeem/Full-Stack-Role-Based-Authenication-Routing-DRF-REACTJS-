@@ -1,4 +1,45 @@
 import { Container, Row, Col, Card, CardGroup } from "react-bootstrap";
+import { Chart } from "react-google-charts";
+
+// Line Chart Data //
+const data = [
+  ["Year", "usage", "collection"],
+  ["Jan", 1000, 400],
+  ["Feb", 1170, 460],
+  ["Mar", 660, 1120],
+  ["May", 1030, 540],
+  ["Jun", 1030, 540],
+  ["Jul", 1030, 540],
+  ["Aug", 660, 1540],
+  ["Sep", 1030, 540],
+  ["Oct", 1030, 540],
+  ["Nov", 1030, 540],
+  ["Dec", 1030, 540],
+];
+
+const options = {
+  title: "Year Wise Usage/Collection",
+  curveType: "function",
+  legend: { position: "bottom" },
+};
+// Line Chart Data Ends //
+
+// Bar Chart Data //
+const bar_data = [
+  ["year", "usage", "collection", "due"],
+  ["2020", 1170, 460 , 600],
+  ["2021", 660, 1120 , 600],
+  ["2022", 1030, 540 , 600],
+];
+
+const bar_options = {
+  chart: {
+    title: "Yearly Performance",
+    subtitle: "Usage, Collection, and Dues",
+  },
+};
+
+// Bar Chart Option Ends //
 
 
 const AdminPage = () => {
@@ -73,6 +114,26 @@ const AdminPage = () => {
             </CardGroup>
           </Col>
         </Row>
+      </div>
+      <div>
+        <Container className="shadow mb-5">
+          <Chart
+            chartType="LineChart"
+            width="100%"
+            height="400px"
+            data={data}
+            options={options}
+          />
+        </Container>
+        <Container className="shadow mb-5">
+          <Chart
+            chartType="Bar"
+            width="100%"
+            height="400px"
+            data={bar_data}
+            options={bar_options}
+          />
+        </Container>
       </div>
     </>
       );

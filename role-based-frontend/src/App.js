@@ -6,25 +6,36 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import { Container } from 'react-bootstrap';
+
+
+
 // Pages
-import Home from "./pages/home";
+//Admin Pages
+import AdminPage from './pages/adminPages/admin';
+//Admin Pages
 import Public from "./pages/public";
 import Login from './pages/authPages/Login';
+// User Pages //
 import User from "./pages/user";
-import Admin from "./pages/admin";
+// User Pages //
+// Manager Pages //
 import Manager from './pages/manager';
+// Manager Pages //
 import NotFound from "./pages/notfound";
-import AdminPage from './pages/admin';
+
+
+
 // Routes
 import LogInRoute from './routes/authRoutes';
 import AdminRoute from './routes/adminRoutes';
 import ManagerRoute from './routes/managerRoute';
+// Routes
 
 // Navbar Layout
 import AdminNavBar from './components/adminNav';
 import UserNavBar from './components/userNav';
 import ManagerNavBar from './components/managerNav';
+// Navbar Layout
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -66,11 +77,12 @@ export default function App() {
               <div className='mainContainer'>
                 < UserNavBar/>
                 <LogInRoute isLoggedIn={isLoggedIn}>
-                  <User />
+                  <Outlet/>
                 </LogInRoute>
               </div>
               }
             >
+          <Route path="/" element={<User />} />
 
 
             </Route>}
@@ -83,11 +95,12 @@ export default function App() {
               <div className='mainContainer'>
                 < AdminNavBar/>
                 <AdminRoute isAdmin={isAdmin} isLoggedIn={isLoggedIn}>
-                  <AdminPage/>
+                  <Outlet/>
                 </AdminRoute>
               </div>
               }
             >
+          <Route path="/" element={<AdminPage />} />
 
 
           </Route>}
@@ -101,11 +114,12 @@ export default function App() {
               <div className='mainContainer'>
                 < ManagerNavBar/>
                 <ManagerRoute isManager={isManager} isLoggedIn={isLoggedIn}>
-                  <Manager/>
+                  <Outlet/>
                 </ManagerRoute>
               </div>
               }
             >
+            <Route path="/" element={<Manager />} />
 
 
           </Route>}

@@ -1,8 +1,12 @@
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown, Card } from 'react-bootstrap';
 import { toast } from "react-toastify";
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import Table from 'react-bootstrap/Table';
+  
+import Image from "react-bootstrap/Image";
+  
 
 
 const AdminNavBar = () => {
@@ -13,12 +17,21 @@ const AdminNavBar = () => {
     // off canvas
     
   
+    // Log Out User
   function handleLogout(){
     localStorage.clear();
     sessionStorage.clear();
     window.location.href = "/";
     toast.success("Log Out Successful!")
     }
+    // Log Out User
+
+    // Get Profile Data
+
+
+    // Get Profile Data
+
+
 
 
 
@@ -27,8 +40,9 @@ const AdminNavBar = () => {
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                     <Nav.Link onClick={handleShow} style={{marginRight:"1rem"}}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-list" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                         </svg>
                     </Nav.Link>
                     <Navbar.Brand href="/">Admin Panel</Navbar.Brand>
@@ -51,12 +65,6 @@ const AdminNavBar = () => {
                     </Nav>
                     <Nav>
                         
-                        <Nav.Link href="profile">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                            </svg>
-                        </Nav.Link>
                         <Nav.Link  onClick={handleLogout}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-power" viewBox="0 0 16 16">
                                 <path d="M7.5 1v7h1V1h-1z"/>
@@ -65,18 +73,54 @@ const AdminNavBar = () => {
                         </Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
-                    <Offcanvas show={show} onHide={handleClose}>
-                        <Offcanvas.Header closeButton>
-                        <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-                        </Offcanvas.Header>
-                        <Offcanvas.Body>
-                        Some text as placeholder. In real life you can have the elements you
-                        have chosen. Like, text, images, lists, etc.
-                        </Offcanvas.Body>
-                    </Offcanvas>
                 </Container>
             </Navbar>
 
+            <Offcanvas className="text-center" show={show} onHide={handleClose}>
+                <Offcanvas.Header closeButton>
+                <Offcanvas.Title>Profile</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    <div className="mb-3">
+                        <Image align="center" width="150" src="https://media.geeksforgeeks.org/wp-content/uploads/20210425000233/test-300x297.png" roundedCircle />
+                        <h2>Nayeem Islam</h2>
+                    </div>
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Nayeem Islam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Company</td>
+                                <td>Axiata Digital</td>
+                            </tr>
+                            <tr>
+                                <td>Designation</td>
+                                <td>Executive</td>
+                            </tr>
+                            <tr>
+                                <td>Phone</td>
+                                <td>08294956693</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>test@test.com</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td>Dhaka, Bangladesh</td>
+                            </tr>
+                            <tr>
+                                <td>AC Type</td>
+                                <td>Admin</td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                </Offcanvas.Body>
+            </Offcanvas>
         </>
     );
 
